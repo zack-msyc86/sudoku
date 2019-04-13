@@ -39,8 +39,18 @@ class Sudoku
             end
             puts ""
         end
+    end
+
+    def translation #転置
 
     end
+
+    def checkHolizontal
+    end
+
+    def check
+    end
+    
 end
 
 sudoku = Sudoku.new(ARGV[0])
