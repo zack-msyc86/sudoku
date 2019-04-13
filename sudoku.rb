@@ -39,10 +39,26 @@ class Sudoku
             end
             puts ""
         end
+        puts "------------------------------"
+        p @sudoku
     end
 
-    def translation #転置
-
+    def transpose #転置
+        sudoku = []
+        sudoku2 = []
+        @sudoku.each do |line|
+            line2 = []
+            line.each do |vector|
+                vector.each do |num|
+                    line2.push(num)
+                end
+            end
+            sudoku2.push(line2)
+        end
+        sudoku2.transpose.each do |line|
+            sudoku.push(line.each_slice(3).to_a)
+        end
+        @sudoku = sudoku
     end
 
     def checkHolizontal
@@ -50,8 +66,10 @@ class Sudoku
 
     def check
     end
-    
+
 end
 
 sudoku = Sudoku.new(ARGV[0])
+sudoku.show
+sudoku.transpose
 sudoku.show
